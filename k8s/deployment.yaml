@@ -5,7 +5,7 @@ metadata:
   labels:
     app: my-app
 spec:
-  replicas: 2  # Adjust the number of replicas as needed
+  replicas: 2  
   selector:
     matchLabels:
       app: my-app
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: my-app-container
-        image: YOUR_ECR_REGISTRY/my-app:latest  # Replace with your ECR registry URL and image name
+        image: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.ap-southeast-1.amazonaws.com/${{ secrets.ECR_REPO }}:latest  
         ports:
         - containerPort: 80
