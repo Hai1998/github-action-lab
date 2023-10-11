@@ -23,7 +23,7 @@ jobs:
 
       - name: Build and tag Docker image
         run: |
-          docker build -t my-docker-image:latest -f Dockerfile .
+          docker build -t my-docker-image:latest .
           docker tag my-docker-image:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_DEFAULT_REGION }}.amazonaws.com/lab-ecr-repo:latest
 
       - name: Push Docker image to ECR
